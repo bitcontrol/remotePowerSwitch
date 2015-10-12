@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="vieport" content="width=device-width, initial-scale=1">
+    <title>Remote Power Switch</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,100" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- Note: the order of loading the script matters! -->
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/myScripts.js"></script>--> <!-- Currently no JS code. -->
+  </head>
+  <body>
+    <div class="container"><!-- Bootstrap: outmost class must be container -->
+      <!-- Title row -->
+      <div class="row">
+        <div class="col-md-6">
+        <!-- TODO: Replace with final logo; 12-Oct-2015/ais -->
+          <img src="images/logoBitcontrol.png" alt="Bitcontrol Logo" class="title-logo" title="Temporary Bitcontrol logo (proposals for better logos welcome)">
+        </div>
+        <div class="col-md-6 text-right text-uppercase">
+          <h1 class="text-thin title-super">Bitcontrol GmbH</h1>
+          <h4>Switzerland</h4>
+        </div>
+      </div>
+      <!-- Horizontal line -->
+      <div class="row">
+        <div class="col-md-12">
+          <hr>
+        </div>
+      </div>
+      <!-- Project title -->
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="title-super"> Remote Power Switch</h1>
+          <article class="text-large top-buffer">This is an Internet of Things (IoT) starter project that demonstrates how to switch on and off an electric heater over the internet. Of course, instead of the 230VAC heater any load could be switched.</article>
+        </div>
+      </div>
+      <!-- User interface -->
+      <div class="row">
+        <!-- Password -->
+        <div class="col-md-12 top-buffer">
+          <form class="text-large" method="post">
+            Password:<br>
+            <input type="text" name="password">
+          </form>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Buttons -->
+        <div class="col-md-12 top-buffer">
+          <button class="btn button-large" type="button">OFF</button> <!-- TODO: Add action; 12-Oct-2015/ais -->
+          <button class="btn button-large" type="button">ON</button> <!-- TODO: Add action; 12-Oct-2015/ais -->
+        </div>
+      </div>
+      <div class="row">
+        <!-- Curent status -->
+        <div class="col-md-4 top-buffer">
+          <div class="text-large">
+            Status: [status to be displayed here]<!-- TODO: Display status using data from the server; 12-Oct-2015/ais-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

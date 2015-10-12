@@ -1,0 +1,40 @@
+body {
+  background-color: #e8e8e8;
+  color: #3e5a8c;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+hr {
+  border-width: 5px;
+}
+
+.button-large {
+  font-size: 48px;
+  font-weight: bold;
+  margin-right: 20px;
+  width: 4em;
+}
+
+.text-large {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.text-thin {
+  font-weight: 100;
+}
+
+.title-logo {
+  margin-top: 30px;
+  height: 120px;
+}
+
+.title-super {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.top-buffer {
+  margin-top: 30px;
+}
