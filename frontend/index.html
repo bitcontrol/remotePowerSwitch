@@ -52,8 +52,8 @@
       <div class="row">
         <!-- Buttons -->
         <div class="col-md-12 top-buffer">
-          <button class="btn button-large" type="button">OFF</button> <!-- TODO: Add action; 12-Oct-2015/ais -->
-          <button class="btn button-large" type="button">ON</button> <!-- TODO: Add action; 12-Oct-2015/ais -->
+          <button class="btn button-large" type="button" data-toggle="modal" data-target="#buttonOff" >OFF</button> <!-- TODO: Add action; 12-Oct-2015/ais -->
+          <button class="btn button-large" type="button" data-toggle="modal" data-target="#buttonOn">ON</button> <!-- TODO: Add action; 12-Oct-2015/ais -->
         </div>
       </div>
       <div class="row">
@@ -61,6 +61,42 @@
         <div class="col-md-4 top-buffer">
           <div class="text-large">
             Status: [status to be displayed here]<!-- TODO: Display status using data from the server; 12-Oct-2015/ais-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Temporary modal for OFF button -->
+    <div class="modal fade" id="buttonOff" tabindex="-1" role="dialog" aria-labelledby="modalLabel1" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="modalLabel1">OFF Button</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              TODO: Action to be implemented. 12-Oct-2015/ais
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Temporary modal for ON button -->
+    <div class="modal fade" id="buttonOn" tabindex="-1" role="dialog" aria-labelledby="modalLabel2" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="modalLabel2">ON Button</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              TODO: Action to be implemented. 12-Oct-2015/ais
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
