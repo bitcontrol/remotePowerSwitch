@@ -1,0 +1,19 @@
+{
+  "name": "rps",
+  "version": "0.1.0",
+  "description": "IoT Remote Power Switch",
+  "main": "server/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitcontrol/remotePowerSwitch.git"
+  },
+  "author": "Andreas Isenegger",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bitcontrol/remotePowerSwitch/issues"
+  },
+  "homepage": "https://github.com/bitcontrol/remotePowerSwitch#readme"
+}
