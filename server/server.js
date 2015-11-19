@@ -3,6 +3,8 @@ var http = require("http");
 var path = require("path");
 var url = require("url");
 
+var status = require("./status");
+var switchOffOn = require("./switchOffOn");
 var httpMsgs = require("./httpMsgs");
 var settings = require("./settings");
 
