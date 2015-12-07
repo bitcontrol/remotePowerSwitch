@@ -41,65 +41,104 @@
       </div>
       <!-- User interface -->
       <div class="row">
-        <!-- Password -->
+        <!-- Device Identifier -->
         <div class="col-md-12 top-buffer">
-          <form class="text-large" method="post">
-            Password:<br>
-            <input type="text" name="password">
+          <form action="javascript:void(0);" class="text-large" id="devId">
+            Device Identifier:
+            <input name="devId" size="12" style="text-align:right;" type="text">
           </form>
         </div>
       </div>
       <div class="row">
         <!-- Buttons -->
         <div class="col-md-12 top-buffer">
-          <button class="btn button-large" type="button" data-toggle="modal" data-target="#buttonOff" >OFF</button> <!-- TODO: Add action; 12-Oct-2015/ais -->
-          <button class="btn button-large" type="button" data-toggle="modal" data-target="#buttonOn">ON</button> <!-- TODO: Add action; 12-Oct-2015/ais -->
+          <button class="btn button-large" onclick="buttonClicked(this)" type="button">OFF</button>
+          <button class="btn button-large" onclick="buttonClicked(this)" type="button">ON</button>
         </div>
       </div>
       <div class="row">
         <!-- Curent status -->
-        <div class="col-md-4 top-buffer">
-          <div class="text-large">
-            Status: [status to be displayed here]<!-- TODO: Display status using data from the server; 12-Oct-2015/ais-->
-          </div>
+        <div class="col-md-12 top-buffer">
+          <div class="title-super" id="status"></div>
         </div>
       </div>
     </div>
-    <!-- Temporary modal for OFF button -->
-    <div class="modal fade" id="buttonOff" tabindex="-1" role="dialog" aria-labelledby="modalLabel1" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="modalLabel1">OFF Button</h4>
-          </div>
-          <div class="modal-body">
-            <p>
-              TODO: Action to be implemented. 12-Oct-2015/ais
-            </p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Temporary modal for ON button -->
-    <div class="modal fade" id="buttonOn" tabindex="-1" role="dialog" aria-labelledby="modalLabel2" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title" id="modalLabel2">ON Button</h4>
-          </div>
-          <div class="modal-body">
-            <p>
-              TODO: Action to be implemented. 12-Oct-2015/ais
-            </p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <script>
+      var sDevId; // 'Static' device identifier; stored between function calls
+      var sTimerId; // 'Static' timer identifier; stored between function calls
+      var UPDATE_INTERVAL_MS = 500; // [ms]
+
+      function buttonClicked(btn) {
+        var formData = $("#devId").serializeArray();
+        $.ajax({
+          type: "POST",
+          url: "switches/" + formData[0].value + "/" + btn.textContent,
+          success: function(data){
+            if (data.error === undefined) { // No error received?
+              if (data.devId !== sDevId) {
+                // Stop the current update requests
+                clearTimeout(sTimerId);
+
+                // Schedule the next update request
+                sDevId = data.devId;
+                sTimerId = setTimeout(updateStatus, UPDATE_INTERVAL_MS, sDevId);
+              }
+
+              // todo For learning purposes; can be deleted
+              console.log("devId = " + data.devId);
+              console.log("state = " + data.state);
+              console.log("date = " + data.date);
+            }
+            else { // Error received
+              // Stop the current update requests
+              clearTimeout(sTimerId);
+              sDevId = undefined;
+              $("#status").text("Status: UNKNOWN");
+
+              // todo For learning purposes; can be deleted
+              console.log("Error: " + data.error);
+            }
+          },
+          dataType: "json",
+          contentType : "application/json"
+        });
+      }
+
+      function updateStatus(devId) {
+        console.log("updateStatus() called with devId = " + devId);
+        if (devId !== undefined) {
+          $.ajax({
+            type: "GET",
+            url: "status/" + devId,
+            success: function(data){
+              devId = data.devId;
+              var statusText = "Status: ";
+              statusText += data.state.toString().toUpperCase();
+              $("#status").text(statusText);
+
+              // todo For learning purposes; can be deleted
+              if (data.error === undefined) { // No error received?
+                console.log("devId = " + data.devId);
+                console.log("state = " + data.state);
+                console.log("date = " + data.date);
+              }
+              else { // Error received
+                console.log("Error: " + data.error);
+              }
+            },
+            complete: function() {
+              // Schedule the next request when the current one's complete
+              sTimerId = setTimeout(updateStatus, UPDATE_INTERVAL_MS, devId);
+            },
+            dataType: "json",
+            contentType : "application/json"
+          });
+        }
+      };
+
+      $(document).ready(function() {
+        $("#status").text("Status: UNKNOWN");
+      });
+    </script>
   </body>
 </html>

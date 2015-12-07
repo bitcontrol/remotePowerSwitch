@@ -83,7 +83,8 @@ http.createServer(function (req, res) { // Returns a new instance of http.Server
     }
     else { // It's not a file; serve REST query
       var urlTokens = reqUrlPath.split("/"); // urlTokens[0] is ""
-      switch (urlTokens[1]) { // End point
+      switch (urlTokens[1]) { // Contains end point
+        // End point 'status'
         case "status":
           if (urlTokens.length === 3) {
             if (req.method === "GET") {
@@ -137,6 +138,7 @@ http.createServer(function (req, res) { // Returns a new instance of http.Server
             console.log(fsPath + ": REST resource not found");
           };
         break;
+        // End point 'switches'
         case "switches":
           if (urlTokens.length === 3) {
             if (req.method === "GET") {
