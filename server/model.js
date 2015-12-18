@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var switchSchema = mongoose.Schema({
   devId: String, // A string offers more possibilities than a number
   date: Date,
-  state: String
+  switch: String
 });
 // Compile schema into model
 exports.switches = mongoose.model('switches', switchSchema);
@@ -13,7 +13,7 @@ exports.switches = mongoose.model('switches', switchSchema);
 var statusSchema = mongoose.Schema({
   devId: String, // A string offers more possibilities than a number
   date: Date,
-  state: String
+  status: String
 });
 // Compile schema into model
 exports.status = mongoose.model('status', statusSchema);

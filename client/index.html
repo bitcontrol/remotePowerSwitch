@@ -86,7 +86,7 @@
 
               // todo For learning purposes; can be deleted
               console.log("devId = " + data.devId);
-              console.log("state = " + data.state);
+              console.log("switch = " + data.switch);
               console.log("date = " + data.date);
             }
             else { // Error received
@@ -113,13 +113,13 @@
             success: function(data){
               devId = data.devId;
               var statusText = "Status: ";
-              statusText += data.state.toString().toUpperCase();
+              statusText += data.status.toString().toUpperCase();
               $("#status").text(statusText);
 
               // todo For learning purposes; can be deleted
               if (data.error === undefined) { // No error received?
                 console.log("devId = " + data.devId);
-                console.log("state = " + data.state);
+                console.log("status = " + data.status);
                 console.log("date = " + data.date);
               }
               else { // Error received

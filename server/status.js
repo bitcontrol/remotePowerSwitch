@@ -30,7 +30,7 @@ exports.get = function(devId, callback) {
         var doc = {};
         doc.devId = docs[0].devId;
         doc.date = docs[0].date;
-        doc.state = docs[0].state;
+        doc.status = docs[0].status;
         callback(null, doc);
       }
       else { // No document with this devId found
@@ -65,11 +65,11 @@ exports.set = function(devId, value, callback) {
         doc.devId = devId;
         doc.date = new Date();
         if (value === "on" || value === "On" || value === "oN" || value === "ON") {
-          doc.state = "on";
+          doc.status = "on";
         }
         else
         {
-          doc.state = "off";
+          doc.status = "off";
         }
         var status = new model.status(doc);
         status.save(function(err, status) {

@@ -31,7 +31,7 @@ function get(devId, callback) {
         var doc = {};
         doc.devId = docs[0].devId;
         doc.date = docs[0].date;
-        doc.state = docs[0].state;
+        doc.switch = docs[0].switch;
         callback(null, doc);
       }
       else { // No document with this devId found
@@ -67,18 +67,18 @@ exports.set = function(devId, value, callback) {
   doc.devId = devId;
   doc.date = new Date();
   if (value === "on" || value === "On" || value === "oN" || value === "ON") {
-    doc.state = "on";
+    doc.switch = "on";
   }
   else
   {
-    doc.state = "off";
+    doc.switch = "off";
   }
   // If the current state is equal to the new state, don't store the
   // request in the database.
   get(devId, function(err, res) { // Retrieve the latest state
     if (!err) {
       if (res.error === undefined) { // Document found?
-        if (doc.state !== res.state) { // New state != old state?
+        if (doc.switch !== res.switch) { // New state != old state?
           // Save new state in the database
           var switchOnOff = new model.switches(doc); // 'switch' is a keyword
           switchOnOff.save(function(err, switchOnOff) {
