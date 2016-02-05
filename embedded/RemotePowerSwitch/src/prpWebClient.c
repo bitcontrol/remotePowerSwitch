@@ -124,6 +124,11 @@ int prpWebClient_GET_switch(BOOL* value)
 	    /* Perform a GET request, res will contain the return code. */
 	    strcpy(strURL, sInstDscr.webServerURI);
 	    strncat(strURL, "switches/1", sizeof(strURL));
+	    // In case a proxy server is in the way but shouldn't be used, it
+	    // can be circumvented by specifying a list of target addresses that
+	    // should not use the proxy, or the wildcard '*' that switches the
+	    // proxy off for all addresses.
+	    // curl_easy_setopt(curl, CURLOPT_NOPROXY, "*");
 	    curl_easy_setopt(curl, CURLOPT_URL, strURL);
 	    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, fWrite);
 	    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &str);

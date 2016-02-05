@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 	/* Check command line arguments. */
 	if (argc == 2)
 	{
-		printf("The argument supplied is %s", argv[1]);
+		printf("The argument supplied is %s\n", argv[1]);
 	} else if (argc > 2)
 	{
 		printf("Too many arguments supplied.");

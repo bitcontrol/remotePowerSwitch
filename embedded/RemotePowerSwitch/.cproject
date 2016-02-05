@@ -29,6 +29,8 @@
 								<option id="gnu.c.compiler.exe.debug.option.debugging.level.955373591" name="Debug Level" superClass="gnu.c.compiler.exe.debug.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.1644562605" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="../src"/>
+									<listOptionValue builtIn="false" value="/home/andreas/devl/git/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include/c++/4.8.3"/>
+									<listOptionValue builtIn="false" value="/usr/include/arm-linux-gnueabihf"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1183690561" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -82,6 +84,8 @@
 								<option id="gnu.c.compiler.exe.release.option.debugging.level.1481657538" name="Debug Level" superClass="gnu.c.compiler.exe.release.option.debugging.level" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.include.paths.1413425103" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="../src"/>
+									<listOptionValue builtIn="false" value="/home/andreas/devl/git/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include/c++/4.8.3"/>
+									<listOptionValue builtIn="false" value="/usr/include/arm-linux-gnueabihf"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1405648455" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -123,26 +127,53 @@
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" cleanCommand="rm -rf" description="Cross compilation for a Raspberry Pi/Raspbian target." id="cdt.managedbuild.config.gnu.exe.debug.2106882680.207899524" name="DebugRaspbian" parent="cdt.managedbuild.config.gnu.exe.debug">
 					<folderInfo id="cdt.managedbuild.config.gnu.exe.debug.2106882680.207899524." name="/" resourcePath="">
-						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.base.857022820" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.base">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.base.857022820" name="Cross GCC" resourceTypeBasedDiscovery="true" superClass="cdt.managedbuild.toolchain.gnu.cross.base">
 							<option id="cdt.managedbuild.option.gnu.cross.prefix.782418621" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" value="arm-linux-gnueabihf-" valueType="string"/>
 							<option id="cdt.managedbuild.option.gnu.cross.path.636434983" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" value="/home/andreas/devl/git/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin" valueType="string"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.1711865531" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
 							<builder buildPath="${workspace_loc:/RemotePowerSwitch}/DebugRaspbian" enableAutoBuild="true" id="cdt.managedbuild.builder.gnu.cross.388273442" keepEnvironmentInBuildfile="false" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1682406182" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
-								<option id="gnu.c.compiler.option.include.paths.1689959919" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+								<option id="gnu.c.compiler.option.include.paths.1689959919" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="../src"/>
+									<listOptionValue builtIn="false" value="/home/andreas/devl/git/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/arm-linux-gnueabihf/include/c++/4.8.3"/>
+									<listOptionValue builtIn="false" value="/usr/local/include/arm-linux-gnueabihf"/>
 								</option>
-								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.option.optimization.level.701429638" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" valueType="enumerated"/>
-								<option id="gnu.c.compiler.option.debugging.level.1207086642" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" value="gnu.c.debugging.level.max" valueType="enumerated"/>
+								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.option.optimization.level.701429638" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.debugging.level.1207086642" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.include.files.114607325" name="Include files (-include)" superClass="gnu.c.compiler.option.include.files" useByScannerDiscovery="false"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1259050616" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.1910543256" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
-								<option id="gnu.cpp.compiler.option.optimization.level.1184310147" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
-								<option id="gnu.cpp.compiler.option.debugging.level.1989634975" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.optimization.level.1184310147" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.debugging.level.1989634975" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.1109713636" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker">
 								<option id="gnu.c.link.option.libs.1282842207" name="Libraries (-l)" superClass="gnu.c.link.option.libs" valueType="libs">
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="curl"/>
+									<listOptionValue builtIn="false" value="curl"/>
+									<listOptionValue builtIn="false" value="gpg-error"/>
+									<listOptionValue builtIn="false" value="p11-kit"/>
+									<listOptionValue builtIn="false" value="keyutils"/>
+									<listOptionValue builtIn="false" value="sasl2"/>
+									<listOptionValue builtIn="false" value="gcrypt"/>
+									<listOptionValue builtIn="false" value="tasn1"/>
+									<listOptionValue builtIn="false" value="gnutls"/>
+									<listOptionValue builtIn="false" value="krb5"/>
+									<listOptionValue builtIn="false" value="k5crypto"/>
+									<listOptionValue builtIn="false" value="com_err"/>
+									<listOptionValue builtIn="false" value="krb5support"/>
+									<listOptionValue builtIn="false" value="rtmp"/>
+									<listOptionValue builtIn="false" value="z"/>
+									<listOptionValue builtIn="false" value="ssl"/>
+									<listOptionValue builtIn="false" value="crypto"/>
+									<listOptionValue builtIn="false" value="gssapi_krb5"/>
+									<listOptionValue builtIn="false" value="ldap_r"/>
+									<listOptionValue builtIn="false" value="lber"/>
+									<listOptionValue builtIn="false" value="ssh2"/>
+									<listOptionValue builtIn="false" value="idn"/>
+								</option>
+								<option id="gnu.c.link.option.paths.1935017742" name="Library search path (-L)" superClass="gnu.c.link.option.paths" valueType="libPaths">
+									<listOptionValue builtIn="false" value="/usr/lib/arm-linux-gnueabihf"/>
+									<listOptionValue builtIn="false" value="/lib/arm-linux-gnueabihf"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.1473345699" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -167,15 +198,6 @@
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="RemotePowerSwitch.cdt.managedbuild.target.gnu.exe.91929488" name="Executable" projectType="cdt.managedbuild.target.gnu.exe"/>
 	</storageModule>
-	<storageModule moduleId="scannerConfiguration">
-		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.2114528792;cdt.managedbuild.config.gnu.exe.release.2114528792.;cdt.managedbuild.tool.gnu.c.compiler.exe.release.779012569;cdt.managedbuild.tool.gnu.c.compiler.input.1405648455">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.2106882680;cdt.managedbuild.config.gnu.exe.debug.2106882680.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1632643832;cdt.managedbuild.tool.gnu.c.compiler.input.1183690561">
-			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
-		</scannerConfigBuildInfo>
-	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
 	<storageModule moduleId="refreshScope" versionNumber="2">
 		<configuration configurationName="Release">
@@ -184,8 +206,21 @@
 		<configuration configurationName="debug">
 			<resource resourceType="PROJECT" workspacePath="/RemotePowerSwitch"/>
 		</configuration>
+		<configuration configurationName="DebugRaspbian"/>
 		<configuration configurationName="Debug">
 			<resource resourceType="PROJECT" workspacePath="/RemotePowerSwitch"/>
 		</configuration>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.release.2114528792;cdt.managedbuild.config.gnu.exe.release.2114528792.;cdt.managedbuild.tool.gnu.c.compiler.exe.release.779012569;cdt.managedbuild.tool.gnu.c.compiler.input.1405648455">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.2106882680.207899524;cdt.managedbuild.config.gnu.exe.debug.2106882680.207899524.;cdt.managedbuild.tool.gnu.cross.c.compiler.1682406182;cdt.managedbuild.tool.gnu.c.compiler.input.1259050616">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.make.core.GCCStandardMakePerFileProfile"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.exe.debug.2106882680;cdt.managedbuild.config.gnu.exe.debug.2106882680.;cdt.managedbuild.tool.gnu.c.compiler.exe.debug.1632643832;cdt.managedbuild.tool.gnu.c.compiler.input.1183690561">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
 	</storageModule>
 </cproject>
