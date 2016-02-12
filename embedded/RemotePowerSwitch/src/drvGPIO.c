@@ -1,16 +1,16 @@
 /**
- *  Filename:       prpSwitch.c
+ *  Filename:       drvGPIO.c
  *  Platform(s):    
  *  Project:        RemotePowerSwitch
- *  Created:        Dec 15, 2015
+ *  Created:        Feb 12, 2016
  *  Description:    
  *  Notes:          
  *  Author:         Andreas Isenegger
- *  Copyright:      2015-2016, Bitcontrol GmbH, Switzerland.
+ *  Copyright:      2016, Bitcontrol GmbH, Switzerland.
  *                  All rights reserved.
  */
 
-#include "prpSwitch.h"
+#include "drvGPIO.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -18,24 +18,23 @@
 #include <cfgGlobal.h>
 #include <cfgPlatform.h>
 
-#include "drvGPIO.h"
+#include <bcm2835.h>
 
 //------------------------------------------------------------------------------
 // Symbols and Macros
 /** Cycle period of this module's handler() function in milliseconds. */
 #define CYCLE_PERIOD                    CFG_CYCLE_PERIOD
 
+// RPi Plug P1 pin 11 (which is BCM2836 GPIO pin 17)
+#define PIN RPI_V2_GPIO_P1_11
+
 //------------------------------------------------------------------------------
 // Types
-// todo Auto-generated instance structure
 /** Instance descriptor type. */
 typedef struct inst_struct
 {
     /** \c TRUE if started, \c FALSE otherwise. */
     BOOL started;
-
-    /** State of the switch. \c TRUE if on, \c FALSE otherwise.*/
-    BOOL state;
 } inst_t;
 
 //------------------------------------------------------------------------------
@@ -49,52 +48,46 @@ static inst_t sInstDscr; /**< Instance descriptor. */
  */
 static void initInst(void)
 {
-    // todo Auto-generated function body
     memset(&sInstDscr, 0, sizeof(sInstDscr));
 }
 
 //------------------------------------------------------------------------------
 // Global Functions
-int prpSwitch_start(void)
+int drvGPIO_start(void)
 {
-    // todo Auto-generated function body
+    int retVal;
+
     CHECK_NOT_STARTED_INT(&sInstDscr, 0);
 
     initInst();
+    retVal = bcm2835_init();
+    if (retVal)
+    {
+        // Set the pin to be an output
+        bcm2835_gpio_fsel(PIN, BCM2835_GPIO_FSEL_OUTP);
+        bcm2835_gpio_set_pad(BCM2835_PAD_GROUP_GPIO_0_27,
+                BCM2835_PAD_DRIVE_10mA);
 
-    sInstDscr.started = TRUE;
-    return R_SUCCESS;
+        sInstDscr.started = TRUE;
+        return R_SUCCESS;
+    }
+    else {
+        PRINT_ERROR("bcm2835_init() returned %i", retVal);
+    }
+    return R_ERROR;
 }
 
-int prpSwitch_stop(void)
+int drvGPIO_stop(void)
 {
-    // todo Auto-generated function body
     if (sInstDscr.started)
     {
+        bcm2835_close();
         sInstDscr.started = FALSE;
     }
     return R_SUCCESS;
 }
 
-void prpSwitch_handler(void)
+void drvGPIO_setOutput(BOOL state)
 {
-    CHECK_STARTED_VOID(&sInstDscr, 0);
-
-    drvGPIO_setOutput(sInstDscr.state);
-}
-
-int prpSwitch_getState(BOOL* value)
-{
-    CHECK_STARTED_INT(&sInstDscr, 0);
-    CHECK_POINTER_INT(value);
-
-    *value = sInstDscr.state;
-    return R_SUCCESS;
-}
-
-int prpSwitch_setState(BOOL value)
-{
-    CHECK_STARTED_INT(&sInstDscr, 0);
-    sInstDscr.state = value;
-    return R_SUCCESS;
+    bcm2835_gpio_write(PIN, state ? HIGH : LOW);
 }

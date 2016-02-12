@@ -175,6 +175,9 @@
 									<listOptionValue builtIn="false" value="/usr/lib/arm-linux-gnueabihf"/>
 									<listOptionValue builtIn="false" value="/lib/arm-linux-gnueabihf"/>
 								</option>
+								<option id="gnu.c.link.option.userobjs.2037505439" superClass="gnu.c.link.option.userobjs" valueType="userObjs">
+									<listOptionValue builtIn="false" value="/usr/lib/arm-linux-gnueabihf/libbcm2835.a"/>
+								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.1473345699" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -223,4 +226,5 @@
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 </cproject>

@@ -28,16 +28,13 @@ extern "C" {
 // #define PRINT_ERROR(...)                printf(__VA_ARGS__)
 // #define PRINT_WARNG(...)                printf(__VA_ARGS__)
 
-/** Time of the long application cycle in milliseconds. */
-#define CFG_CYCLE_PERIOD_LONG           (10 * CFG_CYCLE_PERIOD_SHORT)
-
 /**
-  * Time of the short application cycle in milliseconds.
+  * Time of the application cycle in milliseconds.
   * Dependency of other modules for precise time calculations:
   * 1000 divided by this number should result in an integer number (remainder
   * equals to zero).
   */
-#define CFG_CYCLE_PERIOD_SHORT          100
+#define CFG_CYCLE_PERIOD                100
 
 //------------------------------------------------------------------------------
 // Types
