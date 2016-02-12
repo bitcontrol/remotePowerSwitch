@@ -6,7 +6,7 @@
  *  Description:    
  *  Notes:          
  *  Author:         Andreas Isenegger
- *  Copyright:      2014, Bitcontrol GmbH, Switzerland.
+ *  Copyright:      2015-2016, Bitcontrol GmbH, Switzerland.
  *                  All rights reserved.
  */
 

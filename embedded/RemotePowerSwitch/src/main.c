@@ -11,7 +11,7 @@
  *  				- Periodically write the actual switch status to the Internet
  *  Notes:          
  *  Author:         Andreas Isenegger
- *  Copyright:      2015 Bitcontrol GmbH, Switzerland.
+ *  Copyright:      2015-2016 Bitcontrol GmbH, Switzerland.
  *                  All rights reserved.
  */
 

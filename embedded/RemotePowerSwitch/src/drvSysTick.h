@@ -9,7 +9,7 @@
  *                  system tick generator.
  *  Notes:
  *  Author:         Andreas Isenegger
- *  Copyright:      2013-2014, Bitcontrol GmbH, Switzerland.
+ *  Copyright:      2013-2016, Bitcontrol GmbH, Switzerland.
  *                  All rights reserved.
  */
 
